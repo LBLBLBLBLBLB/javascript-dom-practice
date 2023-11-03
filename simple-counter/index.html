@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Counter</h1>
+    <p id="number">0</p>
+    <div>
+      <button data-action="decrease">decrease</button>
+      <button data-action="reset">reset</button>
+      <button data-action="increase">increase</button>
+    </div>
+
+    <script>
+      const number = document.getElementById("number");
+      const buttons = document.querySelectorAll("button");
+      let value = 0;
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const action = button.getAttribute("data-action");
+          if (action === "decrease") {
+            value--;
+          } else if (action === "increase") {
+            value++;
+          } else if (action === "reset") {
+            value = 0;
+          }
+          number.innerText = value;
+        });
+      });
+    </script>
+  </body>
+</html>
