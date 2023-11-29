@@ -36,30 +36,47 @@ const persons = [
   },
 ];
 
+const leftBtn = document.getElementById("left");
+const rightBtn = document.getElementById("right");
+const randomBtn = document.getElementById("random");
+const card = document.getElementById("card");
+
 let currIndex = 0;
-const peopleContainer = document.getElementById("people");
 
-const renderPerson = (index) => {
-  const person = persons[index];
-  const personElement = document.createElement("div");
-  personElement.classList.add("person");
-  personElement.innerHTML = `
-  <img src="${person.imgSrc}" alt="" style="width: 5rem" />
-  <p class="name">${person.name}</p>
-  <p class="profession">${person.profession}</p>
-  <p class="description">${person.description}</p>
-`;
-  peopleContainer.innerHTML = "";
-  peopleContainer.appendChild(personElement);
+const generatePersonCard = () => {
+  card.innerHTML = "";
+  let personInfo = document.createElement("div");
+  personInfo.innerHTML = `<img class="img" src="${persons[currIndex].imgSrc}" alt="">
+        <p class="name">${persons[currIndex].name}</p>
+        <p class="proffesion">${persons[currIndex].profession}</p>
+        <p class="description">${persons[currIndex].description}</p>
+  `;
+
+  card.appendChild(personInfo);
 };
-function nextPerson() {
-  currIndex = (currIndex + 1) % persons.length;
-  renderPerson(currIndex);
-}
 
-function prevPerson() {
+const updateCard = () => {
+  generatePersonCard();
+};
+leftBtn.addEventListener("click", () => {
   currIndex = (currIndex - 1 + persons.length) % persons.length;
-  renderPerson(currIndex);
-}
+  updateCard();
+});
+rightBtn.addEventListener("click", () => {
+  currIndex = (currIndex + 1) % persons.length;
+  updateCard();
+});
 
-renderPerson(currIndex);
+const generateRandomNum = (min, max) => {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+randomBtn.addEventListener("click", () => {
+  const randomNumber = generateRandomNum(0, 3);
+  currIndex = randomNumber;
+  updateCard();
+});
+
+generatePersonCard();
