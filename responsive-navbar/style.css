@@ -4,11 +4,12 @@
   margin: 0;
 }
 nav {
-  padding: 1rem 10rem;
+  padding: 2rem 0;
   background-color: antiquewhite;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  transition: padding 0.3s ease; /* Added transition for padding */
 }
 .navigation,
 .socials {
@@ -23,8 +24,52 @@ nav {
   font-size: 1.4rem;
   text-decoration: none;
   color: black;
-  transition: all 0.3;
+  transition: all 0.3s;
 }
 .navigation a:hover {
   color: aquamarine;
+}
+.nav-btn {
+  background-color: coral;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 945px) {
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  nav {
+    justify-content: space-between;
+    padding: 2rem 3rem;
+    display: block;
+  }
+
+  .navigation a {
+    transition: all 0.3s;
+  }
+  .navigation a:hover {
+    padding-left: 1rem;
+  }
+
+  .socials,
+  .navigation {
+    display: none;
+  }
+  .nav-btn {
+    display: block;
+  }
+  .show-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+  nav.show-links {
+    padding: 2rem 3rem; /* Adjust padding during transition */
+  }
 }
