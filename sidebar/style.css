@@ -1,0 +1,44 @@
+.sidebar-btn {
+  position: fixed;
+  top: 2rem;
+  right: 3rem;
+}
+.show-sidebar {
+  transform: translate(0%);
+}
+aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 400px;
+  background-color: yellow;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 1rem;
+  transition: all 0.3s linear;
+  transform: translate(-100%);
+}
+.side-head {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.links {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  margin-top: 3rem;
+  padding-left: 2rem;
+  gap: 2rem;
+}
+.links a:hover {
+  background-color: white;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
