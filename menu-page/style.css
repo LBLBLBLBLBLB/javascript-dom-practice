@@ -1,0 +1,11 @@
+.cards-container {
+  display: grid;
+  grid-template-columns: 200px 200px;
+  column-gap: 10rem;
+  row-gap: 3rem;
+}
+.card {
+  width: 20rem;
+  height: 15rem;
+  background-color: aqua;
+}
